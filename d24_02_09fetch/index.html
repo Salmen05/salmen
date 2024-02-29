@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscando CEP</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container mt-3">
+    <h1 class="mb-4">Consultanto CEP</h1>
+      <form class="row g-3">
+        <div class="col-4">
+          <label for="cep" class="form-label">CEP</label>
+          <input type="text" class="form-control" id="cep" name="cep" maxlength="9" placeholder="35010-131">
+        </div>
+        <div class="col-8">
+          <label for="logradouro" class="form-label">Logradouro</label>
+          <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Rua Israel Pinheiro">
+        </div>
+        <div class="col-md-4">
+          <label for="bairro" class="form-label">Bairro</label>
+          <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Centro">
+        </div>
+        <div class="col-md-6">
+          <label for="localidade" class="form-label">Localidade</label>
+          <input type="text" class="form-control" id="localidade" name="localidade" placeholder="Governador Valadares">
+        </div>
+        <div class="col-md-2">
+          <label for="uf" class="form-label">UF</label>
+          <input type="text" class="form-control" id="uf" name="uf" placeholder="MG">
+        </div>
+      </form>
+    </div>
+  </body>
+
+</html>
