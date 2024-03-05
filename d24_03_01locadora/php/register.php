@@ -11,23 +11,35 @@ session_start()
   <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/bootstrap.js"></script>
-</head>
+  <script scr="../js/script.js"></script>
 
 <body style="display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-  <form method="POST" action="loginVerify">
-    <div class="card" style="width: 30rem;">
+  <div class="card" style="width: 30rem;">
+    <form action="./redirect.php" method="POST">
       <h5 class="card-header" style="text-align: center;">Registre-se gratuitamente</h5>
       <div class="card-body">
         <div class="row">
           <div class="col-md-12 mb-3">
+            <label for="nome">Seu nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" aria-label="Nome" required="required">
+          </div>
+          <div class="col-md-12 mb-3">
             <label for="email">Insira seu endereço de email:</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Email" aria-label="Email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" aria-label="Email" required="required">
           </div>
-          <div class="col-md-12 mb-2">
+          <div class="col-md-12 mb-3">
             <label for="password">Insira sua senha:</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Senha" aria-label="Senha">
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" aria-label="Senha" required="required">
           </div>
-          <div>
+          <div class="col-md-7 mb-3">
+            <label for="nascimento">Marque sua data de nascimento:</label>
+            <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Data de nascimento" aria-label="Data de nascimento" required="required">
+          </div>
+          <div class="col-md-5 mb-3">
+            <label for="password">Insira seu CPF:</label>
+            <input type="number" class="form-control" id="cpf" name="cpf" placeholder="CPF" aria-label="CPF" required="required">
+          </div>
+          <div class="col-md-12 mb-3">
             <input type="checkbox" class="form-check-input" id="accept" name="accept" required="required">
             <label for="accept">Aceito os termos de serviço</label>
           </div>
@@ -36,8 +48,7 @@ session_start()
           <button type="submit" class="btn btn-primary mt-3">Registrar</button>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
 </body>
 
 </html>

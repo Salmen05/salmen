@@ -46,7 +46,7 @@
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
               <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#vermaisprod<?php echo $idproduto ?>">Ver+</button>
               <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#alteprod<?php echo $idproduto ?>">Alterar</button>
-              <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#excluirprod<?php echo $idproduto ?>">Exluir</button>
+              <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#excluirprod6<?php echo $idproduto ?>">Exluir</button>
             </div>
           </td>
         </tr>

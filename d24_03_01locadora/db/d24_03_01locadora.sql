@@ -127,6 +127,8 @@ DROP TABLE IF EXISTS `tbusuario`;
 CREATE TABLE `tbusuario` (
   `idusuario` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
   `nivel` enum('Adm','Usario','Cliente') NOT NULL DEFAULT 'Cliente',
   `nascimento` date NOT NULL,
   `cpf` int(10) unsigned NOT NULL,
@@ -134,13 +136,16 @@ CREATE TABLE `tbusuario` (
   `alteraçao` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` enum('A','I') NOT NULL DEFAULT 'A',
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbusuario`
 --
 
 /*!40000 ALTER TABLE `tbusuario` DISABLE KEYS */;
+INSERT INTO `tbusuario` (`idusuario`,`nome`,`email`,`senha`,`nivel`,`nascimento`,`cpf`,`registro`,`alteraçao`,`status`) VALUES 
+ (1,'Miguel Salmen','mii@gmail.com','$2y$12$ulAnQc4.PHSP3cmP73YMVOL.Bfg.9rUonBONrYjjJYhAziDSftg9G','Cliente','2005-11-20',4294967295,'2024-03-05 15:25:19','2024-03-05 15:25:19','A'),
+ (2,'Maria Rita','mariaritacassia170@gmail.com','$2y$12$9cSOyAjXq9ndIlvKWJUETu3qu8SO5K5tetwnyfNRhE0lgo6rCpKM.','Cliente','2005-06-22',4294967295,'2024-03-05 15:27:47','2024-03-05 15:27:47','A');
 /*!40000 ALTER TABLE `tbusuario` ENABLE KEYS */;
 
 

@@ -1,44 +1,48 @@
 function fazerLogin() {
-  const impemail = document.getElementById("impemail").value;
-  const impsenha = document.getElementById("impsenha").value;
-  const log = document.getElementById('log');
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+  const log = document.getElementById("log");
   const divLoading = document.getElementById("cu");
-  if (impemail === "" && impsenha === "") {
+  if (email === "" && senha === "") {
     log.style.display = "block";
     log.innerHTML = "Por favor, preencha os campos acima";
     log.classList.remove("alert-light");
     log.classList.add("alert-warning");
     return;
-  } else if (impemail === "") {
+  } else if (email === "") {
     log.style.display = "block";
     log.innerHTML = "Por favor, preencha o campo de e-mail.";
     log.classList.remove("alert-light");
     log.classList.add("alert-warning");
     return;
-  } else if (impsenha === "") {
+  } else if (senha === "") {
     log.style.display = "block";
-    log.innerHTML = "Preencha o campo de senha"
+    log.innerHTML = "Preencha o campo de senha";
     log.classList.remove("alert-light");
     log.classList.add("alert-warning");
     return;
-  } else if (impsenha.length < 6) {
+  } else if (senha.length < 6) {
     log.style.display = "block";
-    log.innerHTML = "A senha deve conter no mínimo 6 dígitos"
+    log.innerHTML = "A senha deve conter no mínimo 6 dígitos";
     log.classList.remove("alert-light");
     log.classList.add("alert-warning");
     return;
   } else {
-    log.style.display = "none"
+    log.style.display = "none";
   }
   mostrarProcessando();
-  fetch("indextest.php", {
+  fetch("./config/logintest.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: "impemail=" + encodeURIComponent(impemail) + "&impsenha=" + encodeURIComponent(impsenha)
-  },
-  ).then((response) => response.json())
+    body:
+      "email=" +
+      encodeURIComponent(email) +
+      "&senha=" +
+      encodeURIComponent(senha),
+  })
+    .then((response) => response.json())
     .then((data) => {
       if (data.success) {
         setTimeout(function () {
@@ -56,7 +60,7 @@ function fazerLogin() {
         log.innerHTML = data.message;
       }
       esconderProcessando();
-    }) 
+    })
     .catch((error) => {
       console.error("Erro na requisição", error);
     });
@@ -68,7 +72,8 @@ function mostrarProcessando() {
   divProcessando.style.top = "85%";
   divProcessando.style.left = "16.5%";
   divProcessando.style.transform = "translate(-50%, -50%)";
-  divProcessando.innerHTML = '<img src="img/loading.gif" width="200px" alt="Processando..." title="Processando...">';
+  divProcessando.innerHTML =
+    '<img src="../img/loading.gif" width="200px" alt="Processando..." title="Processando...">';
   cu.appendChild(divProcessando);
 }
 function esconderProcessando() {
@@ -78,8 +83,6 @@ function esconderProcessando() {
   }
 }
 
-
-
 function duvifale() {
-  alert('Envio Concluido!!!')
+  alert("Envio Concluido!!!");
 }
