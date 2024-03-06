@@ -144,8 +144,8 @@ CREATE TABLE `tbusuario` (
 
 /*!40000 ALTER TABLE `tbusuario` DISABLE KEYS */;
 INSERT INTO `tbusuario` (`idusuario`,`nome`,`email`,`senha`,`nivel`,`nascimento`,`cpf`,`registro`,`alteraçao`,`status`) VALUES 
- (1,'Miguel Salmen','mii@gmail.com','$2y$12$ulAnQc4.PHSP3cmP73YMVOL.Bfg.9rUonBONrYjjJYhAziDSftg9G','Cliente','2005-11-20',4294967295,'2024-03-05 15:25:19','2024-03-05 15:25:19','A'),
- (2,'Maria Rita','mariaritacassia170@gmail.com','$2y$12$9cSOyAjXq9ndIlvKWJUETu3qu8SO5K5tetwnyfNRhE0lgo6rCpKM.','Cliente','2005-06-22',4294967295,'2024-03-05 15:27:47','2024-03-05 15:27:47','A');
+ (1,'Miguel Salmen','mii@gmail.com','$2y$12$J6E/QG1HyWka9y4ND8uwn.V1aSYBprbysAA9fc6lvQg5Ql2cUEL5y','Cliente','2005-11-20',4294967295,'2024-03-06 10:33:09','2024-03-06 10:33:09','A'),
+ (2,'carlinho','carlos@gmail.com','$2y$12$22AGlXuEwwKqFuNCMMAdDeP5ME0WyBT2O2rZ5FbvoMVP81o7rlfQS','Cliente','2005-11-20',4294967295,'2024-03-06 10:42:22','2024-03-06 10:42:22','A');
 /*!40000 ALTER TABLE `tbusuario` ENABLE KEYS */;
 
 
