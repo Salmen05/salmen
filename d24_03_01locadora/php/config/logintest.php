@@ -1,51 +1,49 @@
 <?php
 include_once("./connection.php");
-global $email;
-global $senha;
-$options = [
-  'cost' => 12
-];
-$senhaHash = password_hash($senha, PASSWORD_BCRYPT, $options);
-function retornoValidar()
-{
-  $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-  $email = $dados['email'];
-  $senha = $dados['senha'];
-  try {
-    $conn = connection();
-    $select = $conn->prepare("SELECT nome, senha FROM tbusuario WHERE email = :email AND senha = :senha");
-    $select->bindValue(':email', $email);
-    $select->bindValue(':senha', $senha);
-    $conn->beginTransaction();
-    $select->execute();
-    $conn->commit();
-    if ($select->rowCount() > 0) {
-      $sqlReturn = $select->fetch(PDO::FETCH_OBJ);
-      var_dump($sqlReturn);
-      $senhaHash = $sqlReturn->senha;
-      if (password_verify($senha, $senhaHash)) {
-        return $sqlReturn;
-      }
-      return 'senha';
+$POST = filter_input_array(INPUT_POST);
+$email = $POST['email'];
+$senha = $POST['senha'];
+$conn = connection();
+$options = ['cost' => 12];
+try {
+  $select = $conn->prepare("SELECT idusuario, nome, email, senha, nivel FROM tbusuario WHERE email = :email");
+  $select->bindValue(':email', $email);
+  $conn->beginTransaction();
+  $select->execute();
+  $conn->commit();
+  if ($select->rowCount() > 0) {
+    $select = $select->fetch(PDO::FETCH_ASSOC);
+    if (password_verify($senha, $select['senha'])) {
+      $result = $select;
     } else {
-      return 'nome';
+      $result = 'senha';
     }
-  } catch (PDOException $e) {
-    echo ('ERROR - ' . $e->getMessage());
-    $conn->rollBack();
-  }
-}
-$retornoValidar = retornoValidar();
-if ($retornoValidar) {
-  if ($retornoValidar == 'nome') {
-    echo json_encode(['success' => false, 'message' => 'Usuário Inválido!']);
-  } else if ($retornoValidar == 'senha') {
-    echo json_encode(['success' => false, 'message' => 'Senha Incorreta!']);
   } else {
-    $_SESSION['idusuario'] = $retornoValidar->idusuario;
-    $_SESSION['nome'] = $retornoValidar->nome;
-    $_SESSION['email'] = $retornoValidar->email;
-    $_SESSION['nivel'] = $retornoValidar->nivel;
-    echo json_encode(['success' => true, 'message' => 'Logado com sucesso!']);
+    $result = 'usuario';
   }
+} catch (PDOException $e) {
+  echo ('ERROR - ' . $e->getMessage());
+  $conn->rollBack();
+}
+if (isset($result)) {
+  ob_start();
+  switch ($result) {
+    case 'usuario':
+      $response = ['success' => false, 'message' => 'Usúario Inválido!'];
+      break;
+    case 'senha':
+      $response = ['success' => false, 'message' => 'Senha incorreta!'];
+      break;
+    default:
+      session_start();
+      $_SESSION['idusuario'] = $select['idusuario'];
+      $_SESSION['nome'] = $select['nome'];
+      $_SESSION['email'] = $select['email'];
+      $_SESSION['nivel'] = $select['nivel'];
+      $response = ['success' => true, 'message' => 'Logado com sucesso!'];
+      break;
+  }
+  header('Content-Type: application/json');
+  echo json_encode($response);
+  ob_end_flush();
 }

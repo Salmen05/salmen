@@ -26,7 +26,7 @@ function fazerLogin() {
     log.innerHTML = "A senha deve conter no mínimo 6 dígitos"
     log.classList.remove("alert-light");
     log.classList.add("alert-warning");
-    return;
+    return; 
   } else {
     log.style.display = "none"
   }
@@ -41,15 +41,17 @@ function fazerLogin() {
   ).then((response) => response.json())
     .then((data) => {
       if (data.success) {
+        console.log(data)
         setTimeout(function () {
           window.location.href = "home.php";
-        }, 2000);
+        }, 10000);
         log.style.display = "block";
         log.classList.remove("alert-danger");
         log.classList.remove("alert-light");
         log.classList.add("alert-success");
         log.innerHTML = data.message;
       } else {
+        console.log(data)
         log.style.display = "block";
         log.classList.remove("alert-light");
         log.classList.add("alert-danger");

@@ -40,20 +40,22 @@ function fazerLogin() {
       "email=" +
       encodeURIComponent(email) +
       "&senha=" +
-      encodeURIComponent(senha),
+      encodeURIComponent(senha)
   })
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
+        console.log(data);
         setTimeout(function () {
-          window.location.href = "home.php";
-        }, 2000);
+          window.location.href = "../index.php";
+        }, 1000);
         log.style.display = "block";
         log.classList.remove("alert-danger");
         log.classList.remove("alert-light");
         log.classList.add("alert-success");
         log.innerHTML = data.message;
       } else {
+        console.log(data);
         log.style.display = "block";
         log.classList.remove("alert-light");
         log.classList.add("alert-danger");
@@ -61,9 +63,6 @@ function fazerLogin() {
       }
       esconderProcessando();
     })
-    .catch((error) => {
-      console.error("Erro na requisição", error);
-    });
 }
 function mostrarProcessando() {
   var divProcessando = document.createElement("div");

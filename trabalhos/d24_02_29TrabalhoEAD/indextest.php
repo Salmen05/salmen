@@ -14,15 +14,13 @@ if ($retornoValidar) {
   if ($retornoValidar == 'usuario') {
     echo json_encode(['success' => false, 'message' => 'Usúario Inválido!']);
   } else if ($retornoValidar == 'senha') {
-    echo json_encode(['success' => false, 'message' => 'Senha incorreta!']);
+    echo json_encode(['success' => false, 'message' => 'Senha incorreta!', 'sla' => $retornoValidar]);
   } else {
     $_SESSION['idusuario'] = $retornoValidar->idusuario;
     $_SESSION['nome'] = $retornoValidar->nome;
     $_SESSION['email'] = $retornoValidar->email;
     $_SESSION['adm'] = $retornoValidar->adm;
-    echo json_encode(['success' => true, 'message' => 'Logado com sucesso!']);
+    echo json_encode(['success' => true, 'message' => 'Logado com sucesso!', 'sla' => $retornoValidar]);
   }
-} else {
-  echo json_encode(['success' => false, 'message' => 'Usuário e Senha inválidos']);
 }
- 
+  
