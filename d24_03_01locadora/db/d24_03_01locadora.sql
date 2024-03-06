@@ -136,7 +136,7 @@ CREATE TABLE `tbusuario` (
   `alteraçao` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` enum('A','I') NOT NULL DEFAULT 'A',
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbusuario`
@@ -144,8 +144,8 @@ CREATE TABLE `tbusuario` (
 
 /*!40000 ALTER TABLE `tbusuario` DISABLE KEYS */;
 INSERT INTO `tbusuario` (`idusuario`,`nome`,`email`,`senha`,`nivel`,`nascimento`,`cpf`,`registro`,`alteraçao`,`status`) VALUES 
- (1,'Miguel Salmen','mii@gmail.com','$2y$12$J6E/QG1HyWka9y4ND8uwn.V1aSYBprbysAA9fc6lvQg5Ql2cUEL5y','Cliente','2005-11-20',4294967295,'2024-03-06 10:33:09','2024-03-06 10:33:09','A'),
- (2,'carlinho','carlos@gmail.com','$2y$12$22AGlXuEwwKqFuNCMMAdDeP5ME0WyBT2O2rZ5FbvoMVP81o7rlfQS','Cliente','2005-11-20',4294967295,'2024-03-06 10:42:22','2024-03-06 10:42:22','A');
+ (3,'Miguel Salmen','mii@gmail.com','$2y$12$OknIToi0Nwa7F9aBZI.IW.uf4TXVT.km67dlvP64Ww8QODpCSGpkK','Cliente','2005-11-20',4294967295,'2024-03-06 14:58:00','2024-03-06 14:58:00','A'),
+ (4,'carlinho','carlo@gmail.com','$2y$12$ZAmIZGxTWMYDtx5d7lirpe0VRlByRr/1w5ifv.ZRiMiO5LhI1bvLO','Cliente','2005-11-20',4294967295,'2024-03-06 15:30:45','2024-03-06 15:30:45','A');
 /*!40000 ALTER TABLE `tbusuario` ENABLE KEYS */;
 
 
