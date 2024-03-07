@@ -50,6 +50,15 @@ $conn = connection();
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tabelas
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="adm.php?page=usuario">Usuários</a></li>
+                <li><a class="dropdown-item" href="adm.php?page=genero">Gêneros</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Categorias
               </a>
               <ul class="dropdown-menu">

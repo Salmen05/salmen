@@ -23,4 +23,3 @@ if ($retornoValidar) {
     echo json_encode(['success' => true, 'message' => 'Logado com sucesso!', 'sla' => $retornoValidar]);
   }
 }
-  
