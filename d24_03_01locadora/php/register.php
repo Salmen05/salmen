@@ -12,6 +12,7 @@ session_start()
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/bootstrap.js"></script>
   <script scr="../js/script.js"></script>
+</head>
 
 <body style="display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
   <div class="card" style="width: 30rem;">
